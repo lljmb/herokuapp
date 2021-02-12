@@ -1,8 +1,12 @@
 const dotenv = require('dotenv').config()
 const express = require('express')
+const cors = require('cors')
 
 const app = express()
 const port = process.env.PORT || 9000
+
+app.use(cors())
+app.use(express.json())
 
 // /* points to anything after the /
 app.use('/api/*', (_, res) => {
@@ -12,6 +16,8 @@ app.use('/api/*', (_, res) => {
 app.listen(port, () => {
     console.log(`server is alive on port: ${port}`)
 })
+
+
 
 // console.log('HEY HEY HEY')
 // console.log(__dirname)
